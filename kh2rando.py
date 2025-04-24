@@ -34,6 +34,8 @@ requested_preset = args.preset
 
 
 def make_random_seed_from_preset_name(requested_type: str):
+    # TODO: Search for the specific preset file instead of loading all of them
+    # load preset data for all presets in folder
     preset_json = {}
     for preset_file_name in os.listdir(appconfig.PRESET_FOLDER):
         preset_name, extension = os.path.splitext(preset_file_name)
@@ -54,7 +56,15 @@ def make_random_seed_from_preset_name(requested_type: str):
     seedString = "".join(random.choice(characters) for i in range(30))
     makeSpoilerLog = False
     settings = SeedSettings()
-    settings.apply_settings_json(preset_json[requested_type])
+    try:
+        settings.apply_settings_json(preset_json[requested_type])
+    except KeyError:
+        print(
+            '\033[31mNo preset file found with the name \033[1m"{}"\033[0m'.format(
+                requested_type
+            )
+        )
+        exit(128)
 
     shared_seed = SharedSeed(
         generator_version=LOCAL_UI_VERSION,
