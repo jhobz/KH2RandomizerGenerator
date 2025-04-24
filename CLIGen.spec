@@ -48,7 +48,7 @@ def external_data_recursive(paths):
 
 
 updater_analysis = Analysis(
-    ['cli_gen.py'],
+    ['kh2rando.py'],
     pathex=[],
     binaries=[],
     datas=build_datas_recursive([
@@ -77,7 +77,7 @@ updater_exe = EXE(
     updater_analysis.zipfiles,
     updater_analysis.datas,
     [],
-    name='cli_gen',
+    name='kh2rando',
     debug=False,
     bootloader_ignore_signals=False,
     strip=False,
