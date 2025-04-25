@@ -4,13 +4,13 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "kh2rando"
-version = "0.0.7"
+version = "0.0.8"
 authors = [
   { name="Jeff Hobson", email="jeff@possiblybad.com" },
 ]
 description = "A collection of tools for KH2 Randomizer"
 readme = "README.md"
-requires-python = "==3.9.2"
+requires-python = "==3.9.*"
 classifiers = [
     "Programming Language :: Python :: 3",
     "Operating System :: OS Independent",
